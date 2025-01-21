@@ -1,0 +1,11 @@
+# Ignorar arquivos do IntelliJ
+.idea/
+
+# Ignorar arquivos do VSCode
+.vscode/
+
+# Ignorar binários e compilados
+*.class
+*.o
+*.exe
+
