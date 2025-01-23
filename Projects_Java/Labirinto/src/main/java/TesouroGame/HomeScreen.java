@@ -5,7 +5,6 @@ import java.awt.*;
 
 public class HomeScreen extends JFrame {
     public HomeScreen() {
-
         SetupWindow();
         SetupPanel();
 
