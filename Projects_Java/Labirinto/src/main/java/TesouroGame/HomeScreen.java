@@ -4,30 +4,54 @@ import javax.swing.*;
 import java.awt.*;
 
 public class HomeScreen extends JFrame {
+
+    private static final Dimension BUTTON_SIZE = new Dimension(150, 50);
+    private static final Font TYPE_FONT = new Font("Roboto", Font.BOLD, 12);
+    private static final Color BACKGROUND =  new Color(59, 30, 84);
+    private static final Color TEXT_COLOR = new Color(212, 190, 228);
+
+    private JFrame window;
+    private JPanel mainPane;
+
     public HomeScreen() {
-        SetupWindow();
-        SetupPanel();
-
+        startWindow();
+        startPanel();
+        addButton();
+        configWindow();
     }
 
-    private void SetupWindow(){
-
-        setVisible(true);
-        setSize(700, 700);
-        setTitle("TesouroGame");
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setResizable(false);
-        setLocationRelativeTo(null);
-        setLayout(new BorderLayout());
-
+    private void startWindow(){
+        window = new JFrame("Tesouro Game");
+        window.setDefaultCloseOperation(EXIT_ON_CLOSE);
     }
 
-    private void SetupPanel(){
-
-        JButton jButton = new JButton("Clique aqui");
-        jButton.setFont(new Font("Arial", Font.BOLD, 25 ));
-        jButton.setForeground(new Color(86, 134, 65));
-        jButton.setBackground(new Color(223, 208, 248));
-        add(jButton, BorderLayout.CENTER);
+    private void startPanel(){
+        mainPane = new JPanel(new FlowLayout(FlowLayout.CENTER, 50, 300));
     }
+    private JButton styleButton(String texto){
+        JButton button = new JButton(texto);
+        button.setFont(TYPE_FONT);
+        button.setBackground(BACKGROUND);
+        button.setForeground(TEXT_COLOR);
+        button.setPreferredSize(BUTTON_SIZE);
+
+        return button;
+    }
+
+    private void addButton(){
+        mainPane.add(styleButton("Iniciar"));
+        mainPane.add(styleButton("Escolher Nível"));
+
+        window.add(mainPane);
+    }
+
+    private void configWindow(){
+        window.setVisible(true);
+        window.setSize(700, 700);
+        window.setLocationRelativeTo(null);
+        window.setResizable(false);
+        window.setTitle("Treasure Game");
+        //window.setBackground(Color.white);
+    }
+
 }
