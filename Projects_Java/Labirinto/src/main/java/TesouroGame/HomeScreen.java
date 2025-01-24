@@ -2,6 +2,8 @@ package TesouroGame;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -59,8 +61,26 @@ public class HomeScreen extends JFrame {
     }
 
     private void addButton(){
-        mainPane.add(styleButton("Iniciar"));
-        mainPane.add(styleButton("Escolher Nível"));
+        JButton startButton = styleButton("Iniciar");
+        JButton levelButton = styleButton("Escolher Nível");
+
+        startButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                new GameScreen().setVisible(true);
+                window.dispose();
+            }
+        });
+
+        levelButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                new LevelSelectionScreen().setVisible(true);
+            }
+        });
+
+        mainPane.add(levelButton);
+        mainPane.add(startButton);
 
         window.add(mainPane);
     }

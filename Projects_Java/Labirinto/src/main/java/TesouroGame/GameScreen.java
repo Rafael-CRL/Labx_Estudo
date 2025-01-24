@@ -1,5 +1,8 @@
 package TesouroGame;
 
-public class GameScreen {
-    //ainda neceeśario construir
+
+public class GameScreen  {
+
+    public void setVisible(boolean b) {
+    }
 }
