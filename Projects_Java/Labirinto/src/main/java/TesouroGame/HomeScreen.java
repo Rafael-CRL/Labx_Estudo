@@ -2,11 +2,13 @@ package TesouroGame;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class HomeScreen extends JFrame {
 
     private static final Dimension BUTTON_SIZE = new Dimension(150, 50);
-    private static final Font TYPE_FONT = new Font("Roboto", Font.BOLD, 12);
+    private static final Font TYPE_FONT = new Font("Roboto", Font.BOLD, 14);
     private static final Color BACKGROUND =  new Color(59, 30, 84);
     private static final Color TEXT_COLOR = new Color(212, 190, 228);
 
@@ -35,6 +37,24 @@ public class HomeScreen extends JFrame {
         button.setForeground(TEXT_COLOR);
         button.setPreferredSize(BUTTON_SIZE);
 
+        button.setBorder(BorderFactory.createCompoundBorder(
+                BorderFactory.createLineBorder(TEXT_COLOR, 2, true),
+                BorderFactory.createEmptyBorder(5, 15, 5, 15)
+        ));
+
+        button.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                button.setBackground(TEXT_COLOR);
+                button.setForeground(BACKGROUND);
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+                button.setBackground(BACKGROUND);
+                button.setForeground(TEXT_COLOR);
+            }
+        });
         return button;
     }
 
