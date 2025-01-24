@@ -67,7 +67,7 @@ public class HomeScreen extends JFrame {
         startButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                new GameScreen().setVisible(true);
+                new GameScreen().startGameScreen(true);
                 window.dispose();
             }
         });
@@ -75,7 +75,7 @@ public class HomeScreen extends JFrame {
         levelButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                new LevelSelectionScreen().setVisible(true);
+                new LevelSelectionScreen().startLevelScreen(true);
             }
         });
 
