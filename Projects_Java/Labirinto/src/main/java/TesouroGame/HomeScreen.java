@@ -6,13 +6,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import static TesouroGame.GameConstants.*;
 
 public class HomeScreen extends JFrame {
-
-    private static final Dimension BUTTON_SIZE = new Dimension(150, 50);
-    private static final Font TYPE_FONT = new Font("Roboto", Font.BOLD, 14);
-    private static final Color BACKGROUND =  new Color(59, 30, 84);
-    private static final Color TEXT_COLOR = new Color(212, 190, 228);
 
     private JFrame window;
     private JPanel mainPane;
@@ -25,7 +21,7 @@ public class HomeScreen extends JFrame {
     }
 
     private void startWindow(){
-        window = new JFrame("Tesouro Game");
+        window = new JFrame();
         window.setDefaultCloseOperation(EXIT_ON_CLOSE);
     }
 
@@ -67,7 +63,7 @@ public class HomeScreen extends JFrame {
         startButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                new GameScreen().startGameScreen(true);
+                new GameScreen();
                 window.dispose();
             }
         });
@@ -75,7 +71,7 @@ public class HomeScreen extends JFrame {
         levelButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                new LevelSelectionScreen().startLevelScreen(true);
+                new LevelSelectionScreen();
             }
         });
 
