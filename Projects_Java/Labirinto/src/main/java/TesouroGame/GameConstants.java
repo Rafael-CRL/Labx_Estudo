@@ -9,5 +9,6 @@ public class GameConstants {
     public static final Color BACKGROUND =  new Color(59, 30, 84);
     public static final Color TEXT_COLOR = new Color(212, 190, 228);
     public static final Dimension WINDOW_SIZE = new Dimension(700, 700);
+    public static final Integer TILE_SIZE = 35;
 }
 
