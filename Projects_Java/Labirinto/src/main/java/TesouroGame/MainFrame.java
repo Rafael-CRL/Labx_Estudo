@@ -3,7 +3,7 @@ package TesouroGame;
 import javax.swing.*;
 import java.awt.*;
 
-import static TesouroGame.GameConstants.WINDOW_SIZE;
+import static TesouroGame.GameConstants.FRAME_SIZE;
 
 public class MainFrame extends JFrame {
     private CardLayout cardLayout;
@@ -11,10 +11,11 @@ public class MainFrame extends JFrame {
 
     public MainFrame(){
         setTitle("Tesouro Game");
-        setSize(700, 700);
+        setPreferredSize(FRAME_SIZE);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         setResizable(false);
+        pack();
 
         cardLayout = new CardLayout();
         mainPanel = new JPanel((cardLayout));

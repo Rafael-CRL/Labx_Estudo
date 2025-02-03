@@ -14,14 +14,17 @@ public class GameScreen extends JPanel {
     }
 
     public void paintComponent(Graphics g){
+        Player jogador = new Player(315, 315, Color.cyan);
+        //Treasure tesouro = new Treasure(350, 350, Color.yellow);
 
-        int centerY = (getHeight() - TILE_SIZE)/2;
-        int centerX = (getWidth() - TILE_SIZE)/2;
+        int centerY = (getHeight() - jogador.size)/2;
+        int centerX = (getWidth() - jogador.size)/2;
 
         super.paintComponent(g);
-        g.setColor(Color.MAGENTA);
-        g.fillRect(centerX, centerY , TILE_SIZE, TILE_SIZE);
+        //g.setColor(tesouro.color);
+        //g.fillRect();
+        g.setColor(jogador.color);
+        g.fillRect(jogador.x, jogador.y, jogador.size, jogador.size);
     }
-
 
 }
