@@ -4,9 +4,9 @@ import java.awt.*;
 import java.util.Random;
 
 public class Treasure extends Entity{
-    Random random = new Random();
+    public static final Random randomXY = new Random();
 
-    public Treasure(int x, int y, Color color){
-        super(x, y, color);
+    public Treasure(Color color){
+        super(randomXY.nextInt(671), randomXY.nextInt(671), color );
     }
 }

@@ -8,7 +8,8 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import static TesouroGame.GameConstants.*;
 
-public class HomeScreen extends JPanel {
+public class
+HomeScreen extends JPanel {
 
     private MainFrame parent;
 

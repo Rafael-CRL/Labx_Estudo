@@ -2,29 +2,46 @@ package TesouroGame;
 
 import javax.swing.*;
 import java.awt.*;
-
-import static TesouroGame.GameConstants.TILE_SIZE;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 public class GameScreen extends JPanel {
     private MainFrame parent;
+    private GameBoard gameBoard;
 
     public GameScreen(MainFrame parent){
         this.parent = parent;
+        this.gameBoard = new GameBoard();
         setBackground(Color.black);
+        setFocusable(true);
+        move();
     }
 
     public void paintComponent(Graphics g){
-        Player jogador = new Player(315, 315, Color.cyan);
-        //Treasure tesouro = new Treasure(350, 350, Color.yellow);
-
-        int centerY = (getHeight() - jogador.size)/2;
-        int centerX = (getWidth() - jogador.size)/2;
-
         super.paintComponent(g);
-        //g.setColor(tesouro.color);
-        //g.fillRect();
-        g.setColor(jogador.color);
-        g.fillRect(jogador.x, jogador.y, jogador.size, jogador.size);
+
+        startPaint(g);
     }
 
+    public void startPaint(Graphics g){
+        Treasure treasure = gameBoard.getTesouro();
+        g.setColor(treasure.getColor());
+        g.fillRect(treasure.getX(), treasure.getY(), treasure.getSize(), treasure.getSize());
+
+        Player player = gameBoard.getJogador();
+
+        g.setColor(player.color);
+        g.fillRect(player.getX(), player.getY(), player.getSize(), player.getSize());
+    }
+
+    public void move(){
+        addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyPressed(KeyEvent e) {
+                int keyCode = e.getKeyCode();
+                gameBoard.inputPlayer(keyCode);
+                repaint();
+            }
+        });
+    }
 }
