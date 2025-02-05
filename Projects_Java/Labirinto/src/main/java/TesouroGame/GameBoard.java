@@ -1,5 +1,6 @@
 package TesouroGame;
 
+import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 
@@ -42,7 +43,7 @@ public class GameBoard {
         int newX = jogador.getX() + dX;
         int newY = jogador.getY() + dY;
 
-        if (newX <= 670 && newX > 0) jogador.setX(newX);
-        if (newY <= 670 && newY > 0) jogador.setY(newY);
+        if (newX > 0 && newX <= 670) jogador.setX(newX);
+        if (newY > 0 && newY <= 670) jogador.setY(newY);
     }
 }

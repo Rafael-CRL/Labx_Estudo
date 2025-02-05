@@ -15,7 +15,12 @@ public class GameScreen extends JPanel {
         setBackground(Color.black);
         setFocusable(true);
         move();
+
     }
+   /* public void addNotify(){
+        super.addNotify();
+        requestFocusInWindow();
+    }*/
 
     public void paintComponent(Graphics g){
         super.paintComponent(g);
@@ -44,4 +49,16 @@ public class GameScreen extends JPanel {
             }
         });
     }
+    public void startKeyBinds(){
+        InputMap mapaEntrada = getInputMap(WHEN_IN_FOCUSED_WINDOW);
+        ActionMap mapaAção = getActionMap();
+
+        mapaEntrada.put(KeyStroke.getKeyStroke("W"),"cima");
+        mapaEntrada.put(KeyStroke.getKeyStroke("S"),"baixo");
+        mapaEntrada.put(KeyStroke.getKeyStroke("D"),"direita");
+        mapaEntrada.put(KeyStroke.getKeyStroke("A"),"esquerda");
+
+        
+    }
+
 }

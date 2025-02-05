@@ -12,10 +12,12 @@ public class MainFrame extends JFrame {
     public MainFrame(){
         setTitle("Tesouro Game");
         setPreferredSize(FRAME_SIZE);
+        //setSize(700, 700);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setLocationRelativeTo(null);
         setResizable(false);
         pack();
+        setLocationRelativeTo(null);
+        //requestFocusInWindow();
 
         cardLayout = new CardLayout();
         mainPanel = new JPanel((cardLayout));
