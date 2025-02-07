@@ -6,5 +6,6 @@ public class Main {
     public static void main(String[] args){
         //SwingUtilities.invokeLater(HomeScreen::new);
         SwingUtilities.invokeLater(() -> new MainFrame());
+
     }
 }

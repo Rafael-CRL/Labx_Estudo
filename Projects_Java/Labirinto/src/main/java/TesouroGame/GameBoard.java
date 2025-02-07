@@ -30,7 +30,7 @@ public class GameBoard {
     }
 
     public void inputPlayer(int keyCode){
-        int speed = 5;
+        int speed = 35;
         switch(keyCode){
             case KeyEvent.VK_W -> movePlayer(0, -speed); //cima
             case KeyEvent.VK_S -> movePlayer(0, speed); //baixo
@@ -43,7 +43,7 @@ public class GameBoard {
         int newX = jogador.getX() + dX;
         int newY = jogador.getY() + dY;
 
-        if (newX > 0 && newX <= 670) jogador.setX(newX);
-        if (newY > 0 && newY <= 670) jogador.setY(newY);
+        if (newX >= 0 && newX <= 665) jogador.setX(newX);
+        if (newY >= 0 && newY <= 665) jogador.setY(newY);
     }
 }
