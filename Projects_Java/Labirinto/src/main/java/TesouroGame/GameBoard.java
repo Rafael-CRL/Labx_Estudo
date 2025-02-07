@@ -4,6 +4,9 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 
+import static TesouroGame.GameConstants.FRAME_SIZE;
+import static TesouroGame.GameConstants.TILE_SIZE;
+
 public class GameBoard {
     private Treasure tesouro;
     private Player jogador;
@@ -43,7 +46,15 @@ public class GameBoard {
         int newX = jogador.getX() + dX;
         int newY = jogador.getY() + dY;
 
-        if (newX >= 0 && newX <= 665) jogador.setX(newX);
-        if (newY >= 0 && newY <= 665) jogador.setY(newY);
+        int maxPosition = FRAME_SIZE.width - TILE_SIZE;
+
+        if (newX >= 0 && newX <= maxPosition) jogador.setX(newX);
+        if (newY >= 0 && newY <= maxPosition) jogador.setY(newY);
+    }
+
+    private boolean treasureColision(){
+        if(jogador.getX() == tesouro.getX() && jogador.getY() == tesouro.getY())
+            return true;
+        return false;
     }
 }

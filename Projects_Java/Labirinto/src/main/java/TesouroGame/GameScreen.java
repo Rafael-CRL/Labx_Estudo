@@ -52,7 +52,7 @@ public class GameScreen extends JPanel {
     }*/
     
     public void drawLines(Graphics g){
-        g.setColor(Color.GREEN);
+        g.setColor(Color.WHITE);
         for (int i = 0; i < 700; i+=35){
             g.drawLine(i, 0, i, 700);
             g.drawLine(0, i, 700, i);
