@@ -4,6 +4,6 @@ import java.awt.*;
 
 public class Obstacle extends Entity{
     public Obstacle(){
-        super(315, 315, Color.gray);
+        super(70, 70, Color.gray);
     }
 }

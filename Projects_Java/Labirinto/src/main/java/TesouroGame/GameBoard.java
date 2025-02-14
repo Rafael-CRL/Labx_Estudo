@@ -10,6 +10,7 @@ import static TesouroGame.GameConstants.TILE_SIZE;
 public class GameBoard {
     private Treasure tesouro;
     private Player jogador;
+    private Obstacle obstaculo;
     
     public GameBoard(){
         startEntity();
@@ -22,6 +23,8 @@ public class GameBoard {
         jogador = new Player(startX, startY, Color.cyan );
 
         tesouro =  new Treasure(Color.orange);
+
+        obstaculo = new Obstacle();
     }
 
     public Player getJogador() {
@@ -31,6 +34,8 @@ public class GameBoard {
     public Treasure getTesouro() {
         return tesouro;
     }
+
+    public Obstacle getObstaculo(){return obstaculo;}
 
     public void inputPlayer(int keyCode){
         int speed = 35;
@@ -52,7 +57,7 @@ public class GameBoard {
         if (newY >= 0 && newY <= maxPosition) jogador.setY(newY);
     }
 
-    private boolean treasureColision(){
+    private boolean checkColision(){
         if(jogador.getX() == tesouro.getX() && jogador.getY() == tesouro.getY())
             return true;
         return false;

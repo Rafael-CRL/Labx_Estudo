@@ -38,6 +38,11 @@ public class GameScreen extends JPanel {
 
         g.setColor(player.color);
         g.fillRect(player.getX(), player.getY(), player.getSize(), player.getSize());
+
+        Obstacle obstacle = gameBoard.getObstaculo();
+
+        g.setColor(obstacle.color);
+        g.fillRect(obstacle.getX(), obstacle.getY(), obstacle.getSize(), obstacle.getSize());
     }
 //descontinuado
    /* public void move(){
