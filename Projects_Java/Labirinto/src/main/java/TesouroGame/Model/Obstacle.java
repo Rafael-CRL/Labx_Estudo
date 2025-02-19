@@ -1,8 +1,8 @@
-package TesouroGame;
+package TesouroGame.Model;
 
 import java.awt.*;
 
-public class Obstacle extends Entity{
+public class Obstacle extends Entity {
     public Obstacle(){
         super(70, 70, Color.gray);
     }

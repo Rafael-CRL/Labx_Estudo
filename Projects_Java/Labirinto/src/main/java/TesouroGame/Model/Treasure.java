@@ -1,9 +1,9 @@
-package TesouroGame;
+package TesouroGame.Model;
 
 import java.awt.*;
 import java.util.Random;
 
-public class Treasure extends Entity{
+public class Treasure extends Entity {
     public static final Random randomXY = new Random();
 
     public Treasure(Color color){

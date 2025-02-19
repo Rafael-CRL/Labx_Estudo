@@ -1,9 +1,9 @@
-package TesouroGame;
+package TesouroGame.View;
 
 import javax.swing.*;
 import java.awt.*;
 
-import static TesouroGame.GameConstants.FRAME_SIZE;
+import static TesouroGame.Model.GameConstants.FRAME_SIZE;
 
 public class MainFrame extends JFrame {
     private CardLayout cardLayout;

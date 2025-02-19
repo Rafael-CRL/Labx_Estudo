@@ -1,9 +1,13 @@
-package TesouroGame;
+package TesouroGame.View;
+
+import TesouroGame.Control.GameBoard;
+import TesouroGame.Model.Obstacle;
+import TesouroGame.Model.Player;
+import TesouroGame.Model.Treasure;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
-import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
 public class GameScreen extends JPanel {
@@ -36,12 +40,12 @@ public class GameScreen extends JPanel {
 
         Player player = gameBoard.getJogador();
 
-        g.setColor(player.color);
+        g.setColor(player.getColor());
         g.fillRect(player.getX(), player.getY(), player.getSize(), player.getSize());
 
         Obstacle obstacle = gameBoard.getObstaculo();
 
-        g.setColor(obstacle.color);
+        g.setColor(obstacle.getColor());
         g.fillRect(obstacle.getX(), obstacle.getY(), obstacle.getSize(), obstacle.getSize());
     }
 //descontinuado

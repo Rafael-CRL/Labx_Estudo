@@ -1,4 +1,4 @@
-package TesouroGame;
+package TesouroGame.View;
 
 import javax.swing.*;
 

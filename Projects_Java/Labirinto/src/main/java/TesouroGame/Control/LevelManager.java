@@ -1,4 +1,4 @@
-package TesouroGame;
+package TesouroGame.Control;
 
 public class LevelManager {
 

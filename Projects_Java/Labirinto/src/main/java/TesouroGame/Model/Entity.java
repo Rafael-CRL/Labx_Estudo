@@ -1,4 +1,4 @@
-package TesouroGame;
+package TesouroGame.Model;
 
 import java.awt.*;
 

@@ -1,11 +1,14 @@
-package TesouroGame;
+package TesouroGame.Control;
 
-import javax.swing.*;
+import TesouroGame.Model.Obstacle;
+import TesouroGame.Model.Player;
+import TesouroGame.Model.Treasure;
+
 import java.awt.*;
 import java.awt.event.KeyEvent;
 
-import static TesouroGame.GameConstants.FRAME_SIZE;
-import static TesouroGame.GameConstants.TILE_SIZE;
+import static TesouroGame.Model.GameConstants.FRAME_SIZE;
+import static TesouroGame.Model.GameConstants.TILE_SIZE;
 
 public class GameBoard {
     private Treasure tesouro;
@@ -50,16 +53,28 @@ public class GameBoard {
     private void movePlayer(int dX, int dY) {
         int newX = jogador.getX() + dX;
         int newY = jogador.getY() + dY;
-
         int maxPosition = FRAME_SIZE.width - TILE_SIZE;
 
-        if (newX >= 0 && newX <= maxPosition) jogador.setX(newX);
-        if (newY >= 0 && newY <= maxPosition) jogador.setY(newY);
+        boolean atTheLimit = newX >= 0 && newX <= maxPosition && newY >= 0 && newY <= maxPosition;
+
+        boolean treasureFound = checkTreasureColision(newX, newY);
+        boolean check = checkColision(newX, newY);
+
+        if (!check && atTheLimit) {
+            jogador.setX(newX);
+            jogador.setY(newY);
+            if(treasureFound)
+                System.out.println("Tesouro encontrado");
+        }else{
+            System.out.println("Não é possível se movimentar");
+        }
     }
 
-    private boolean checkColision(){
-        if(jogador.getX() == tesouro.getX() && jogador.getY() == tesouro.getY())
-            return true;
-        return false;
+    private boolean checkColision(int newX, int newY){
+        return newX == obstaculo.getX() && newY == obstaculo.getY();
+    }
+
+    private boolean checkTreasureColision(int newX, int newY){
+        return  newX == tesouro.getX() && newY == tesouro.getY();
     }
 }

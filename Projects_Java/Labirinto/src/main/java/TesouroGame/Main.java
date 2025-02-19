@@ -1,10 +1,10 @@
 package TesouroGame;
 
+import TesouroGame.View.MainFrame;
+
 import javax.swing.*;
 
-import static TesouroGame.GameConstants.FRAME_SIZE;
-import static TesouroGame.GameConstants.TILE_SIZE;
-import static TesouroGame.Treasure.randomXY;
+import static TesouroGame.Model.Treasure.randomXY;
 
 public class Main {
     public static void main(String[] args){
