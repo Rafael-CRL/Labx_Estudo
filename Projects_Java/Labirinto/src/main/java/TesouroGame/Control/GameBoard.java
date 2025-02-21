@@ -23,7 +23,7 @@ public class GameBoard {
         int startX = 315;
         int startY = 315;
 
-        jogador = new Player(startX, startY, Color.cyan );
+        jogador = new Player(startX, startY, Color.orange );
 
         tesouro =  new Treasure(Color.orange);
 
