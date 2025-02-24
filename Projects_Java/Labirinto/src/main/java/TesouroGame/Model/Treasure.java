@@ -11,4 +11,8 @@ public class Treasure extends Entity {
         super(randomXY.nextInt(20) * 35, randomXY.nextInt(20) * 35, color) ;
 
     }
+
+    public Treasure(int x, int y, Color color){
+        super(x, y, color);
+    }
 }

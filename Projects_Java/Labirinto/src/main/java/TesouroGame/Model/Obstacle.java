@@ -3,7 +3,7 @@ package TesouroGame.Model;
 import java.awt.*;
 
 public class Obstacle extends Entity {
-    public Obstacle(){
-        super(70, 70, Color.gray);
+    public Obstacle(int x, int y, Color color){
+        super(x, y, color);
     }
 }
