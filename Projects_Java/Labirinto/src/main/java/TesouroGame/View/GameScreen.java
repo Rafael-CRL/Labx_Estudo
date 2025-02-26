@@ -17,7 +17,7 @@ public class GameScreen extends JPanel {
     public GameScreen(MainFrame parent){
         this.parent = parent;
         this.gameBoard = new GameBoard();
-        setBackground(Color.black);
+        setBackground(Color.white);
         setFocusable(true);
         startKeyBinds();
     }
@@ -61,7 +61,7 @@ public class GameScreen extends JPanel {
     }*/
     
     public void drawLines(Graphics g){
-        g.setColor(Color.WHITE);
+        g.setColor(Color.black);
         for (int i = 0; i < 700; i+=35){
             g.drawLine(i, 0, i, 700);
             g.drawLine(0, i, 700, i);

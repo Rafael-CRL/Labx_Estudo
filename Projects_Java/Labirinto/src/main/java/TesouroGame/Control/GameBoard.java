@@ -23,9 +23,9 @@ public class GameBoard {
         int startX = 315;
         int startY = 315;
 
-        jogador = new Player(startX, startY, Color.orange );
+        jogador = new Player(startX, startY, Color.darkGray );
 
-        tesouro =  new Treasure(Color.orange);
+        tesouro =  new Treasure(Color.BLACK);
 
         obstaculo = new Obstacle(70, 70, Color.blue);
     }
