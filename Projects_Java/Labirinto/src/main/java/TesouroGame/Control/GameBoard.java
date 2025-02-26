@@ -27,7 +27,7 @@ public class GameBoard {
 
         tesouro =  new Treasure(Color.orange);
 
-        //obstaculo = new Obstacle();
+        obstaculo = new Obstacle(70, 70, Color.blue);
     }
 
     public Player getJogador() {

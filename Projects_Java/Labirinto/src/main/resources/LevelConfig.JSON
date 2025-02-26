@@ -1,5 +1,10 @@
 {
-  "x": 315,
-  "y": 315,
-  "color": "#FFA500"
+  "ID": 1,
+  "PlayerPosition": {
+    "X": 315,
+    "Y": 315
+  },
+  "Treasure": {
+    "X":
+  }
 }
