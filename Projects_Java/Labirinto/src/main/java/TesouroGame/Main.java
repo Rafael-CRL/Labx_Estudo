@@ -1,5 +1,7 @@
 package TesouroGame;
 
+import TesouroGame.Control.LevelManager;
+import TesouroGame.Model.LevelStatus;
 import TesouroGame.View.MainFrame;
 
 import javax.swing.*;
@@ -11,10 +13,10 @@ public class Main {
         //SwingUtilities.invokeLater(HomeScreen::new);
         SwingUtilities.invokeLater(() -> new MainFrame());
 
-        int x1 = randomXY.nextInt(20) * 35;
-        int x2 = randomXY.nextInt(20) * 35;
+        LevelManager levelManager = new LevelManager();
+        LevelStatus levelStatus = levelManager.getLevelStatus();
 
-        System.out.println(x1 +" "+ x2);
+        System.out.println(levelStatus);
 
     }
 }
