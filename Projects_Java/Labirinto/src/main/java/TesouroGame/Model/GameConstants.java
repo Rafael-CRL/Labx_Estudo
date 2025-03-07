@@ -10,5 +10,7 @@ public class GameConstants {
     public static final Color TEXT_COLOR = new Color(212, 190, 228);
     public static final Dimension FRAME_SIZE = new Dimension(700, 700);
     public static final Integer TILE_SIZE = 35;
+    public static final Integer COl = FRAME_SIZE.height/TILE_SIZE;
+    public static final Integer ROW = FRAME_SIZE.width/TILE_SIZE;
 }
 

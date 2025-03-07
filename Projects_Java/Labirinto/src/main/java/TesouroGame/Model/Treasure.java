@@ -7,12 +7,10 @@ public class Treasure extends Entity {
     public static final Random randomXY = new Random();
 
     public Treasure(Color color){
-
-        super(randomXY.nextInt(20) * 35, randomXY.nextInt(20) * 35, color) ;
-
+        super(randomXY.nextInt(20), randomXY.nextInt(20), color) ;
     }
 
-    public Treasure(int x, int y, Color color){
-        super(x, y, color);
+    public Treasure(int row, int col, Color color){
+        super(row, col, color);
     }
 }

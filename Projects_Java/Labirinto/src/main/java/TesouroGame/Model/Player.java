@@ -3,8 +3,8 @@ package TesouroGame.Model;
 import java.awt.*;
 
 public class Player extends Entity {
-    public Player (int x, int y, Color color){
-        super(x, y, color);
+    public Player (int row, int col, Color color){
+        super(row, col, color);
     }
 
 }

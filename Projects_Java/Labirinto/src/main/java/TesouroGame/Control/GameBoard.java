@@ -1,5 +1,6 @@
 package TesouroGame.Control;
 
+import TesouroGame.Model.Entity;
 import TesouroGame.Model.Obstacle;
 import TesouroGame.Model.Player;
 import TesouroGame.Model.Treasure;
@@ -7,27 +8,31 @@ import TesouroGame.Model.Treasure;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 
-import static TesouroGame.Model.GameConstants.FRAME_SIZE;
-import static TesouroGame.Model.GameConstants.TILE_SIZE;
+import static TesouroGame.Model.GameConstants.*;
 
 public class GameBoard {
+
+    private Entity[][] matrix = new Entity[ROW][COl];
     private Treasure tesouro;
     private Player jogador;
     private Obstacle obstaculo;
-    
+
     public GameBoard(){
         startEntity();
     }
 
     private void startEntity() {
-        int startX = 315;
-        int startY = 315;
+        int startRow = 9;
+        int startCol = 9;
 
-        jogador = new Player(startX, startY, Color.darkGray );
-
+        jogador = new Player(startRow, startCol, Color.darkGray );
         tesouro =  new Treasure(Color.BLACK);
+        obstaculo = new Obstacle(2, 2, Color.blue);
 
-        obstaculo = new Obstacle(70, 70, Color.blue);
+        addMAtrix(jogador);
+        addMAtrix(tesouro);
+        addMAtrix(obstaculo);
+
     }
 
     public Player getJogador() {
@@ -76,5 +81,9 @@ public class GameBoard {
 
     private boolean checkTreasureColision(int newX, int newY){
         return  newX == tesouro.getX() && newY == tesouro.getY();
+    }
+
+    private void addMAtrix(Entity entidade){
+        matrix[entidade.getRow()][entidade.getCol()] = entidade;
     }
 }
