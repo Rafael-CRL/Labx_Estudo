@@ -35,6 +35,56 @@ public class GameBoard {
 
     }
 
+    private void addMAtrix(Entity entidade){
+        matrix[entidade.getRow()][entidade.getCol()] = entidade;
+    }
+
+    public void matrixMovePlayer(Entity entity, int newRow, int newCol){
+       matrix[entity.getRow()][entity.getCol()] = null;
+       matrix[newRow][newCol] = entity;
+       entity.setPosition(newRow, newCol);
+    }
+
+
+    public void inputPlayer(int keyCode){
+        int newRow = jogador.getRow();
+        int newCol = jogador.getCol();
+
+        switch(keyCode){
+            case KeyEvent.VK_W -> newCol--;//cima
+            case KeyEvent.VK_S -> newCol++;//baixo
+            case KeyEvent.VK_D -> newRow++;//direita
+            case KeyEvent.VK_A -> newRow--;//esquerda
+        };
+
+
+        boolean atTheLimit = newRow >= 0 && newRow < ROW && newCol >= 0 && newCol < COl;
+
+        if(atTheLimit){
+           Entity newPosition = matrix[newRow][newCol];
+           if(newPosition == null){
+              matrixMovePlayer(jogador, newRow, newCol);
+           }
+           else if(newPosition == tesouro){
+               System.out.println("Parabéns você encontrou o tesouro");
+               matrixMovePlayer(jogador, newRow, newCol);
+           }
+           else if(newPosition == obstaculo){
+               System.out.println("não é possível se mover, obstáculo na frente");
+           }
+
+        }else{
+            System.out.println("Você está fora dos limites");
+        }
+
+
+
+    }
+
+    public Entity[][] getMatrix() {
+        return matrix;
+    }
+
     public Player getJogador() {
         return jogador;
     }
@@ -44,46 +94,4 @@ public class GameBoard {
     }
 
     public Obstacle getObstaculo(){return obstaculo;}
-
-    public void inputPlayer(int keyCode){
-        int speed = 35;
-        switch(keyCode){
-            case KeyEvent.VK_W -> movePlayer(0, -speed); //cima
-            case KeyEvent.VK_S -> movePlayer(0, speed); //baixo
-            case KeyEvent.VK_D -> movePlayer(speed, 0); //direita
-            case KeyEvent.VK_A -> movePlayer(-speed, 0); //esquerda
-        };
-    }
-
-    private void movePlayer(int dX, int dY) {
-        int newX = jogador.getX() + dX;
-        int newY = jogador.getY() + dY;
-        int maxPosition = FRAME_SIZE.width - TILE_SIZE;
-
-        boolean atTheLimit = newX >= 0 && newX <= maxPosition && newY >= 0 && newY <= maxPosition;
-
-        boolean treasureFound = checkTreasureColision(newX, newY);
-        boolean check = checkColision(newX, newY);
-
-        if (!check && atTheLimit) {
-            jogador.setX(newX);
-            jogador.setY(newY);
-            if(treasureFound)
-                System.out.println("Tesouro encontrado");
-        }else{
-            System.out.println("Não é possível se movimentar");
-        }
-    }
-
-    private boolean checkColision(int newX, int newY){
-        return newX == obstaculo.getX() && newY == obstaculo.getY();
-    }
-
-    private boolean checkTreasureColision(int newX, int newY){
-        return  newX == tesouro.getX() && newY == tesouro.getY();
-    }
-
-    private void addMAtrix(Entity entidade){
-        matrix[entidade.getRow()][entidade.getCol()] = entidade;
-    }
 }
