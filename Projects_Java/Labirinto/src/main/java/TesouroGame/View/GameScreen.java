@@ -9,10 +9,16 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+
+import static TesouroGame.Model.GameConstants.*;
 
 public class GameScreen extends JPanel {
     private MainFrame parent;
     private GameBoard gameBoard;
+    private JPanel pausePane = new JPanel();
+    private boolean pause = false;
 
     public GameScreen(MainFrame parent){
         this.parent = parent;
@@ -20,6 +26,7 @@ public class GameScreen extends JPanel {
         setBackground(Color.white);
         setFocusable(true);
         startKeyBinds();
+        add(pausePane);
     }
    /* public void addNotify(){
         super.addNotify();
@@ -77,6 +84,7 @@ public class GameScreen extends JPanel {
         mapaEntrada.put(KeyStroke.getKeyStroke("S"),"baixo");
         mapaEntrada.put(KeyStroke.getKeyStroke("D"),"direita");
         mapaEntrada.put(KeyStroke.getKeyStroke("A"),"esquerda");
+        mapaEntrada.put(KeyStroke.getKeyStroke("ESCAPE"),"pause");
 
         mapaAção.put("cima", new AbstractAction() {
             @Override
@@ -110,6 +118,60 @@ public class GameScreen extends JPanel {
             }
         });
 
+        mapaAção.put("pause", new AbstractAction() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                pause = true;
+                pausePaneConfig();
+                repaint();
+            }
+        });
+
+
+
+    }
+    private void pausePaneConfig(){
+        JButton sair = styleButton("Sair");;
+        JButton continuar = styleButton("Continuar");
+
+       pausePane.setVisible(false);
+        pausePane.setLayout(new FlowLayout(FlowLayout.CENTER, 50, 300));
+        pausePane.add(sair);
+        pausePane.add(continuar);
+
+        pausePane.setLayout(new FlowLayout());
+
+        if(pause)
+            pausePane.setVisible(true);
+
+    }
+    private JButton styleButton(String texto){
+        JButton button = new JButton(texto);
+        button.setFont(TYPE_FONT);
+        button.setBackground(BACKGROUND);
+        button.setForeground(TEXT_COLOR);
+        button.setPreferredSize(BUTTON_SIZE);
+
+        button.setBorder(BorderFactory.createCompoundBorder(
+                BorderFactory.createLineBorder(TEXT_COLOR, 2, true),
+                BorderFactory.createEmptyBorder(5, 15, 5, 15)
+        ));
+
+        button.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                button.setBackground(TEXT_COLOR);
+                button.setForeground(BACKGROUND);
+            }
+
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+                button.setBackground(BACKGROUND);
+                button.setForeground(TEXT_COLOR);
+            }
+        });
+        return button;
     }
 
 }
