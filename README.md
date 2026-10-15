@@ -1,6 +1,6 @@
 # Labx_Estudo
 
-Estudos em Java da época do LABEX (UFPA).
+Projeto criado com objetivo de estudar Java, no Laboratório de Programação extrema (LABEX).
 
 ## Projects_Java/Labirinto
 
